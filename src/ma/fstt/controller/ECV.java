@@ -45,9 +45,13 @@ public class ECV extends HttpServlet {
 		{		
 			try {
 			CVDAO cdao= new CVDAO();
-			Long a=Long.parseLong(request.getParameter("id"));
+			Long a=Long.parseLong(request.getParameter("val"));
 			InputStream input = cdao.getById(a).getDoc().getBinaryStream();
-			File f=new File("s.pdf");
+			File f=new File("CVTechnicien.pdf");
+			if (!f.exists()) {
+			    f.createNewFile();
+			} 
+			System.out.print(f.getAbsolutePath());
 			 FileOutputStream fos = new FileOutputStream(f);
 			 int b = 0;
 			 while ((b = input.read()) != -1)
@@ -55,15 +59,16 @@ public class ECV extends HttpServlet {
 			     fos.write(b); 
 			 }    
 			}
-			catch(Exception e) {}
-				request.getRequestDispatcher("s.pdf").forward(request, response);
+			catch(Exception e) { System.out.print(e);}
+				request.getRequestDispatcher("CVTechnicien.pdf").forward(request, response);
 		}
 		else 
 		{
 			try {
 				CVDAO cdao= new CVDAO();
 				List<CV> lcv=cdao.List();
-				request.setAttribute("cv",lcv);
+				request.setAttribute("lc",lcv);
+//				System.out.print(lcv.size());
 				if(!response.isCommitted())
 				request.getRequestDispatcher("espacecv.jsp").forward(request, response);
 			} catch (ClassNotFoundException e) {

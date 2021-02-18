@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import ma.fstt.entities.CV;
+import ma.fstt.entities.Client;
 import ma.fstt.entities.Demande;
 import ma.fstt.services.BaseDAO;
 
@@ -46,14 +47,32 @@ public class CVDAO extends BaseDAO<CV>{
 		
 		while(this.resultSet.next()) {
 			
-			list.add(new CV(this.resultSet.getInt(0),this.resultSet.getBlob("doc"))) ;		
+			list.add(new CV(this.resultSet.getInt(1),this.resultSet.getBlob("doc"))) ;		
 		}	
 		return list;
 	}
 	@Override
 	public CV getById(Long id) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "select * from cv where id = ?";
+		this.preparedStatement = this.connection.prepareStatement(sql);
+		
+		// mapping objet relation
+
+		this.preparedStatement.setLong(1,id);
+		
+		this.resultSet = this.preparedStatement.executeQuery();
+		
+		CV cv = null;
+		
+		while(this.resultSet.next()) {
+			
+			
+			cv = new CV(this.resultSet.getInt(1), this.resultSet.getBlob(2));
+			
+			break ;
+			
+		}
+		return cv;
 	}
 	
 }

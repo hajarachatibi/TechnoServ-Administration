@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="ma.fstt.entities.CV" import="java.util.List"%>
 <!DOCTYPE html>
-<% List<CV> lc=(List<CV>) request.getAttribute("lcv"); %>
+<% List<CV> lc=(List<CV>) request.getAttribute("lc"); %>
 <html>
 <head>
 <meta charset="UTF-8">

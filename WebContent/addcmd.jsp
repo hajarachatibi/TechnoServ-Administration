@@ -37,20 +37,20 @@ body{background-image: linear-gradient( 112.1deg,  rgba(32,38,57,1) 11.4%, rgba(
         </li>
        <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="e.p" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Espace Produit
+            Espace Technicien
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="e.p">Gérer les produits</a></li>
-            <li><a class="dropdown-item" href="addp.jsp">Ajouter un produit</a></li>
+            <li><a class="dropdown-item" href="e.p">Gérer les technicien</a></li>
+            <li><a class="dropdown-item" href="addp.jsp">Ajouter un technicien</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Espace Commande
+            Espace Demande
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="e.cmd">Gérer les commandes</a></li>
-             <li><a class="dropdown-item" href="addcmd.jsp">Ajouter une commande</a></li>
+            <li><a class="dropdown-item" href="e.cmd">Gérer les demandes</a></li>
+             <li><a class="dropdown-item" href="addcmd.jsp">Ajouter une demande</a></li>
           </ul>
         </li>
       </ul>
@@ -62,7 +62,7 @@ body{background-image: linear-gradient( 112.1deg,  rgba(32,38,57,1) 11.4%, rgba(
 <div class="row justify-content-center mt-5">
 <div class="col-6">
 <div class="card">
-  <h5 class="card-header">Ajouter une commande</h5>
+  <h5 class="card-header">Ajouter une demande</h5>
   <div class="card-body">
    <form method="get" action="add.cmd">
   <div class="mb-3">
