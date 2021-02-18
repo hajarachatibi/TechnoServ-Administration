@@ -1,6 +1,11 @@
 package ma.fstt.controller;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -36,8 +41,22 @@ public class ECV extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String p=request.getServletPath();
-		if(p.equals("/show"))
+		if(p.equals("/show.cv"))
 		{		
+			try {
+			CVDAO cdao= new CVDAO();
+			Long a=Long.parseLong(request.getParameter("id"));
+			InputStream input = cdao.getById(a).getDoc().getBinaryStream();
+			File f=new File("s.pdf");
+			 FileOutputStream fos = new FileOutputStream(f);
+			 int b = 0;
+			 while ((b = input.read()) != -1)
+			 {
+			     fos.write(b); 
+			 }    
+			}
+			catch(Exception e) {}
+				request.getRequestDispatcher("s.pdf").forward(request, response);
 		}
 		else 
 		{

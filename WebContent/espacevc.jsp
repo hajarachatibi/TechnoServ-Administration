@@ -18,7 +18,7 @@
   <div class="card-body">
     <h5 class="card-title">FIle</h5>
     <p class="card-text">CV</p>
-    <form method="get" action="delete.p">
+    <form method="get" action="show.cv">
    <input  type="hidden" name="val" value="<%=lc.get(i).getId()%>" />
    <input type="submit" class="btn btn-primary " value="Consulter">
   </form>
