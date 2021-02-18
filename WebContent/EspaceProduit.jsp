@@ -59,8 +59,12 @@
 	<thead>
 		<tr>
 			<th><h1>id</h1></th>
-			<th><h1>Libelle</h1></th>
-			<th><h1>Prix</h1></th>
+			<th><h1>Full Name</h1></th>
+			<th><h1>Email</h1></th>
+			<th><h1>City</h1></th>
+			<th><h1>Phone number</h1></th>
+			<th><h1>Id_specialite</h1></th>
+			<th><h1>Disponibilité</h1></th>
 			<th><h1>Edit</h1></th>
 			<th><h1>Delete</h1></th>
 		</tr>
@@ -69,8 +73,13 @@
 	<% for(int i=0;i<lp.size();i++){ %>
 		<tr>
 			<td><%=lp.get(i).getId() %></td>
-			<td><%=lp.get(i).getLibelle() %></td>
-			<td><%=lp.get(i).getPrix() %></td>
+			<td><%=lp.get(i).getName()%></td>
+			<td><%=lp.get(i).getEmail()%></td>
+			<td><%=lp.get(i).getVille()%></td>
+			<td><%=lp.get(i).getPhone_num()%></td>
+			<td><%=lp.get(i).getId_specialite()%></td>
+			<td><%=lp.get(i).isDisponible()%></td>
+			
 			<td>
 			<form method="get" action="edit.p">
    <input  type="hidden" name="val" value="<%=lp.get(i).getId()%>" />

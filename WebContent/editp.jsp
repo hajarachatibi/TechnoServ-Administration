@@ -62,28 +62,28 @@ body{background-image: linear-gradient( 112.1deg,  rgba(32,38,57,1) 11.4%, rgba(
   <div class="card-body">
    <form method="post" action="confirmedit.p">
   <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label" >Libelle</label>
-    <input type="text" class="form-control" name="libelle" aria-describedby="emailHelp" value="<%=a.getLibelle() %>">
+    <label for="exampleInputEmail1" class="form-label" >Full name</label>
+    <input type="text" class="form-control" name="name" aria-describedby="emailHelp" value="<%=a.getName() %>">
   </div>
   <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label" >Libelle</label>
-    <input type="text" class="form-control" name="libelle" aria-describedby="emailHelp" value="<%=a.getLibelle() %>">
+    <label for="exampleInputEmail1" class="form-label" >Adress Email</label>
+    <input type="text" class="form-control" name="email" aria-describedby="emailHelp" value="<%=a.getEmail() %>">
   </div>
     <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label" >Libelle</label>
-    <input type="text" class="form-control" name="libelle" aria-describedby="emailHelp" value="<%=a.getLibelle() %>">
+    <label for="exampleInputEmail1" class="form-label" >Password</label>
+    <input type="password" class="form-control" name="password" aria-describedby="emailHelp" value="<%=a.getPassword()%>">
   </div>
     <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label" >Libelle</label>
-    <input type="text" class="form-control" name="libelle" aria-describedby="emailHelp" value="<%=a.getLibelle() %>">
+    <label for="exampleInputEmail1" class="form-label" >City</label>
+    <input type="text" class="form-control" name="ville" aria-describedby="emailHelp" value="<%=a.getVille() %>">
   </div>
     <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label" >Libelle</label>
-    <input type="text" class="form-control" name="libelle" aria-describedby="emailHelp" value="<%=a.getLibelle() %>">
+    <label for="exampleInputEmail1" class="form-label" >Phone number</label>
+    <input type="text" class="form-control" name="phone_num" aria-describedby="emailHelp" value="<%=a.getPhone_num() %>">
   </div>
     <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label" >Libelle</label>
-    <input type="text" class="form-control" name="libelle" aria-describedby="emailHelp" value="<%=a.getLibelle() %>">
+    <label for="exampleInputEmail1" class="form-label" >id_specialite</label>
+    <input type="text" class="form-control" name="id_specialite" aria-describedby="emailHelp" value="<%=a.getId_specialite()%>">
   </div>
   <input type="hidden" name="id" value=<%=a.getId() %>>
   <div class="col text-center">

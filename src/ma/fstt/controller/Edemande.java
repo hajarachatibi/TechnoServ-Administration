@@ -60,6 +60,16 @@ public class Edemande extends HttpServlet {
 			} catch (Exception e) {
 			}
 		}
+		else if(p.equals("/edit.cmd"))
+		{
+			try {
+				cdao=new DemandeDAO();
+				cm=cdao.getById(Long.parseLong(request.getParameter("val")));
+				request.setAttribute("c", cm);
+				request.getRequestDispatcher("editd.jsp").forward(request, response);
+			} catch (Exception e) {
+			}
+		}
 		else if(p.equals("/add.cmd"))
 		{
 			
@@ -70,7 +80,7 @@ public class Edemande extends HttpServlet {
 				cdao.save(cm);
 //				Demande cmd = cdao.getlast();
 //				request.setAttribute("cmd",cmd);
-				request.getRequestDispatcher("addptocmd.jsp").forward(request, response);
+				request.getRequestDispatcher("EspaceCommande.jsp").forward(request, response);
 				
 			}
 			

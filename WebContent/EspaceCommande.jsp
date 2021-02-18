@@ -60,6 +60,10 @@
 		<tr>
 			<th><h1>id</h1></th>
 			<th><h1>id client</h1></th>
+			<th><h1>id_specialite</h1></th>
+			<th><h1>Rating</h1></th>
+			<th><h1>Latitude</h1></th>
+			<th><h1>Longitude</h1></th>
 			<th><h1>Delete</h1></th>
 			<th><h1>Edit</h1></th>
 		</tr>
@@ -69,6 +73,10 @@
 		<tr>
 			<td><%=lc.get(i).getId() %></td>
 			<td><%=lc.get(i).getId_client() %></td>
+			<td><%=lc.get(i).getId_specialite()%></td>
+			<td><%=lc.get(i).getRating() %></td>
+			<td><%=lc.get(i).getLattitude()%></td>
+			<td><%=lc.get(i).getLattitude() %></td>
 
   			<td>
   				<form method="get" action="delete.cmd">
@@ -77,7 +85,7 @@
  				 </form>
  			</td>
     		<td>
-  				<form method="get" action="details.cmd">
+  				<form method="get" action="edit.cmd">
    					<input  type="hidden" name="val" value="<%=lc.get(i).getId()%>" />
    					<input type="submit" class="btn btn-outline-info" value="Edit">
   				</form>

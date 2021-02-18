@@ -1,13 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="ma.fstt.entities.Client" import="java.util.List"%>
+    pageEncoding="UTF-8" import="ma.fstt.entities.Demande"%>
+    <%
+    	Demande a=(Demande) request.getAttribute("d");
+    %>
 <!DOCTYPE html>
-<% List<Client> lc=(List<Client>) request.getAttribute("clients"); %>
 <html>
 <head>
+<style>
+body{background-image: linear-gradient( 112.1deg,  rgba(32,38,57,1) 11.4%, rgba(63,76,119,1) 70.2% );}
+</style>
 <meta charset="UTF-8">
-<title>Espace Client</title>
+<title>Modification d'une demande</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-<link rel="stylesheet" href="style2.css">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 </head>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -50,46 +54,38 @@
   </div>
 </nav>
 <body>
-<div class="sec">
-<h1><span class="blue">Espace</span> <span class="yellow">Client</span></h1>
+<div class="container">
+<div class="row justify-content-center mt-5">
+<div class="col-6">
+<div class="card">
+  <h5 class="card-header">Modifier une demande</h5>
+  <div class="card-body">
+   <form method="post" action="confirmedit.cmd">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label" >Adress </label>
+    <input type="text" class="form-control" name="adresse" aria-describedby="emailHelp" value="<%=a.getAdresse() %>">
+  </div>
+    <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label" >id_client</label>
+    <input type="text" class="form-control" name="id_client" aria-describedby="emailHelp" value="<%=a.getId_client() %>">
+  </div>
+    <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label" >id_specialite</label>
+    <input type="text" class="form-control" name="id_specialite" aria-describedby="emailHelp" value="<%=a.getId_specialite()%>">
+  </div>
+   <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label" >Ratinig</label>
+    <input type="text" class="form-control" name="rating" aria-describedby="emailHelp" value="<%=a.getRating()%>">
+  </div>
+  <input type="hidden" name="id" value=<%=a.getId() %>>
+  <div class="col text-center">
+  <button type="submit" class="btn btn-warning">Modifier</button>
+  </div>
+</form>
+  </div>
 </div>
-<table class="container">
-	<thead>
-		<tr>
-			<th><h1>id</h1></th>
-			<th><h1>Full name</h1></th>
-			<th><h1>Email</h1></th>
-			<th><h1>Phone number</h1></th>
-			<th><h1>City</h1></th>
-			<th><h1>Adress</h1></th>
-			<th><h1>Edit</h1></th>
-			<th><h1>Delete</h1></th>
-		</tr>
-	</thead>
-	<tbody>
-	<% for(int i=0;i<lc.size();i++){ %>
-		<tr>
-			<td><%=lc.get(i).getId() %></td>
-			<td ><%=lc.get(i).getName() %></td>
-			<td><%=lc.get(i).getEmail() %></td>
-			<td><%=lc.get(i).getPhone_num() %></td>
-			<td><%=lc.get(i).getVille()%></td>
-			<td><%=lc.get(i).getAdresse() %></td>
-			<td>
-			<form method="get" action="edit.c">
-   <input  type="hidden" name="val" value="<%=lc.get(i).getId()%>" />
-   <input type="submit" class="btn btn-outline-info" value="Edit">
-  </form>
-  </td>
-  <td>
-  <form method="get" action="delete.c">
-   <input  type="hidden" name="val" value="<%=lc.get(i).getId()%>" />
-   <input type="submit" class="btn btn-outline-dark " value="Delete">
-  </form>
-  </td>
-		</tr>
-		<%} %>
-	</tbody>
-</table>
+</div>
+</div>
+</div>
 </body>
 </html>
