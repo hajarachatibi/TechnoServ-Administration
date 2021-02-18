@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="ma.fstt.entities.Demande"%>
     <%
-    	Demande a=(Demande) request.getAttribute("d");
+    	Demande a=(Demande) request.getAttribute("a");
     %>
 <!DOCTYPE html>
 <html>

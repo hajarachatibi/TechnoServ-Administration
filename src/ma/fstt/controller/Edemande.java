@@ -65,7 +65,7 @@ public class Edemande extends HttpServlet {
 			try {
 				cdao=new DemandeDAO();
 				cm=cdao.getById(Long.parseLong(request.getParameter("val")));
-				request.setAttribute("c", cm);
+				request.setAttribute("a", cm);
 				request.getRequestDispatcher("editd.jsp").forward(request, response);
 			} catch (Exception e) {
 			}
@@ -84,7 +84,7 @@ public class Edemande extends HttpServlet {
 				
 			}
 			
-			catch(Exception e){}
+			catch(Exception e){System.out.print(e);}
 		}
 		
 			try {

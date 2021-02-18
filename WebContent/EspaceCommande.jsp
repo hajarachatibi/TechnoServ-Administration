@@ -59,6 +59,7 @@
 	<thead>
 		<tr>
 			<th><h1>id</h1></th>
+			<th><h1>Adress</h1></th>
 			<th><h1>id client</h1></th>
 			<th><h1>id_specialite</h1></th>
 			<th><h1>Rating</h1></th>
@@ -72,6 +73,7 @@
 	<% for(int i=0;i<lc.size();i++){ %>
 		<tr>
 			<td><%=lc.get(i).getId() %></td>
+			<td><%=lc.get(i).getAdresse() %></td>
 			<td><%=lc.get(i).getId_client() %></td>
 			<td><%=lc.get(i).getId_specialite()%></td>
 			<td><%=lc.get(i).getRating() %></td>

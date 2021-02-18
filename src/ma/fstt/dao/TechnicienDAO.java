@@ -33,23 +33,23 @@ String sql = "insert into User (email ,name, password,ville) values (? ,?,?,?)";
 		this.preparedStatement.execute();
 		
 		User u = this.getUserByEmail(object.getEmail());
-		
-		String sql2 = "insert into Technicien (disponible, lattitude, longitude, phone_num, ville, id, id_specialite, email, name, password) values (? ,?,?,?,?,?,?, ?,?,?)";
+				
+		String sql2 = "insert into technicien (phone_number, ville, id, id_specialite, email, name, password, disponible, lattitude, longitude) values (?,?,?,? ,?,?,?,?,?,?)";
 		
 		this.preparedStatement = this.connection.prepareStatement(sql2);
 		
 		// mapping objet relation
 		
-		this.preparedStatement.setBoolean(1, false);
-		this.preparedStatement.setDouble(2, object.getLattitude());
-		this.preparedStatement.setDouble(3, object.getLongitude());
-		this.preparedStatement.setString(4, object.getPhone_num());
-		this.preparedStatement.setString(5, object.getVille());
-		this.preparedStatement.setLong(6, u.getId());
-		this.preparedStatement.setLong(7, object.getId_specialite());
-		this.preparedStatement.setString(8, object.getEmail());
-		this.preparedStatement.setString(9, object.getName());
-		this.preparedStatement.setString(10, object.getPassword());
+		this.preparedStatement.setBoolean(8, false);
+		this.preparedStatement.setDouble(9, object.getLattitude());
+		this.preparedStatement.setDouble(10, object.getLongitude());
+		this.preparedStatement.setString(1, object.getPhone_num());
+		this.preparedStatement.setString(2, object.getVille());
+		this.preparedStatement.setLong(3, u.getId());
+		this.preparedStatement.setLong(4, object.getId_specialite());
+		this.preparedStatement.setString(5, object.getEmail());
+		this.preparedStatement.setString(6, object.getName());
+		this.preparedStatement.setString(7, object.getPassword());
 		
 		this.preparedStatement.execute();
 		
@@ -60,21 +60,21 @@ String sql = "insert into User (email ,name, password,ville) values (? ,?,?,?)";
 	@Override
 	public void update(Technicien object)throws SQLException {
 		
-String sql = "update  Technicien set disponible =? , lattitude= ?, longitude= ? , phone_num =? , ville= ?, id_specialite= ? , email= ?, name= ? , password= ? where id = ?";
+String sql = "update  Technicien set  phone_number =? , ville= ?, id_specialite= ? , email= ?, name= ? , password= ? where id = ?";
 		
 		this.preparedStatement = this.connection.prepareStatement(sql);
 		
 		// mapping objet relation
-		this.preparedStatement.setBoolean(1, object.isDisponible());
-		this.preparedStatement.setDouble(2, object.getLattitude());
-		this.preparedStatement.setDouble(3, object.getLongitude());
-		this.preparedStatement.setString(4, object.getPhone_num());
-		this.preparedStatement.setString(5, object.getVille());
-		this.preparedStatement.setLong(7, object.getId_specialite());
-		this.preparedStatement.setString(8, object.getEmail());
-		this.preparedStatement.setString(9, object.getName());
-		this.preparedStatement.setString(10, object.getPassword());
-		this.preparedStatement.setLong(6, object.getId());
+//		this.preparedStatement.setBoolean(1, object.isDisponible());
+//		this.preparedStatement.setDouble(2, object.getLattitude());
+//		this.preparedStatement.setDouble(3, object.getLongitude());
+		this.preparedStatement.setString(1, object.getPhone_num());
+		this.preparedStatement.setString(2, object.getVille());
+		this.preparedStatement.setLong(3, object.getId_specialite());
+		this.preparedStatement.setString(4, object.getEmail());
+		this.preparedStatement.setString(5, object.getName());
+		this.preparedStatement.setString(6, object.getPassword());
+		this.preparedStatement.setLong(7, object.getId());
 		
 		this.preparedStatement.execute();
 		
@@ -97,6 +97,8 @@ String sql2 = "update  User set  email= ?, name= ? , password= ? , ville= ? wher
 
 	@Override
 	public void delete(Technicien object)throws SQLException {
+				
+		
 		String sql = "delete  from User  where id = ?";
 		
 		this.preparedStatement = this.connection.prepareStatement(sql);
@@ -107,7 +109,7 @@ String sql2 = "update  User set  email= ?, name= ? , password= ? , ville= ? wher
 		
 		this.preparedStatement.execute();
 		
-		String sql2 = "delete  from Client  where id = ?";
+		String sql2 = "delete  from Technicien  where id = ?";
 		
 		this.preparedStatement = this.connection.prepareStatement(sql2);
 		
@@ -166,7 +168,7 @@ String sql2 = "update  User set  email= ?, name= ? , password= ? , ville= ? wher
 	public User getUserByEmail(String email)throws SQLException {
 		// TODO Auto-generated method stub
 		
-		String sql = "select *  from Client  where email = ?";
+		String sql = "select *  from User  where email = ?";
 		
 		User et  = null ;
 		

@@ -27,8 +27,8 @@ public class DemandeDAO extends BaseDAO<Demande>  {
 		// mapping objet relation
 		
 		this.preparedStatement.setString(1, object.getAdresse());
-		this.preparedStatement.setDouble(2, object.getLattitude());
-		this.preparedStatement.setDouble(3, object.getLongitude());
+		this.preparedStatement.setDouble(2,0.0);
+		this.preparedStatement.setDouble(3,0.0);
 		this.preparedStatement.setLong(4, object.getId_client());
 		this.preparedStatement.setLong(5, object.getId_specialite());
 		this.preparedStatement.setDouble(6, object.getRating());

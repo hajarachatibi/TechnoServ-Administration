@@ -162,7 +162,7 @@ String sql2 = "update  User set  email= ?, name= ? , password= ? , ville= ? wher
 	public User getUserByEmail(String email)throws SQLException {
 		// TODO Auto-generated method stub
 		
-		String sql = "select *  from Client  where email = ?";
+		String sql = "select *  from User  where email = ?";
 		
 		User et  = null ;
 		

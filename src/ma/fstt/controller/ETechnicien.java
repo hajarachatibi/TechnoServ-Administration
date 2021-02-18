@@ -64,12 +64,12 @@ public class ETechnicien extends HttpServlet {
 		else if(p.equals("/add.p"))
 		{
 			
-			pd=new Technicien(false, 0.0, 0.0, request.getParameter("phone_num"),request.getParameter("ville"), (long) 0 , Long.parseLong(request.getParameter("specialite")) ,request.getParameter("email"), request.getParameter("name"), request.getParameter("password"));
+			pd=new Technicien(false, 0.0, 0.0, request.getParameter("phone_num"),request.getParameter("ville"), (long) 0 , Long.parseLong(request.getParameter("id_specialite")) ,request.getParameter("email"), request.getParameter("name"), request.getParameter("password"));
 			try {
 			pdao=new TechnicienDAO();
 			pdao.save(pd);
 			}
-			catch(Exception e){}
+			catch(Exception e){ System.out.print(e);}
 		}
 			try {
 				pdao = new TechnicienDAO();
@@ -97,7 +97,7 @@ public class ETechnicien extends HttpServlet {
 		String p=request.getServletPath();
   if(p.equals("/confirmedit.p"))
   {
-	   pd=new Technicien(Boolean.parseBoolean(request.getParameter("disponible")),0.0, 0.0, request.getParameter("phone_num"),request.getParameter("ville"), Long.parseLong(request.getParameter("id")), Long.parseLong(request.getParameter("specialite")) ,request.getParameter("email"), request.getParameter("name"), request.getParameter("password"));
+	   pd=new Technicien(false,0.0, 0.0, request.getParameter("phone_num"),request.getParameter("ville"), Long.parseLong(request.getParameter("id")), Long.parseLong(request.getParameter("id_specialite")) ,request.getParameter("email"), request.getParameter("name"), request.getParameter("password"));
 	  try {
 			 pdao=new TechnicienDAO();
 			pdao.update(pd);
